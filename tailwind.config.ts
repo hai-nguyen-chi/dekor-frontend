@@ -3,7 +3,8 @@ import type { Config } from 'tailwindcss'
 export default {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}'
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/layouts/**/*.{js,ts,jsx,tsx}'
   ],
   presets: [],
   darkMode: 'media', // or 'class'
@@ -17,7 +18,9 @@ export default {
       spin: 'spin 1s linear infinite',
       ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      bounce: 'bounce 1s infinite'
+      bounce: 'bounce 1s infinite',
+      'slide-to-black': 'slide-to-black 0.5s forwards',
+      'slide-to-white': 'slide-to-white 0.5s forwards'
     },
     aria: {
       busy: 'busy="true"',
@@ -607,6 +610,14 @@ export default {
           transform: 'none',
           animationTimingFunction: 'cubic-bezier(0,0,0.2,1)'
         }
+      },
+      'slide-to-black': {
+        '0%': { backgroundPosition: '100% 0' },
+        '100%': { backgroundPosition: '0 0' }
+      },
+      'slide-to-white': {
+        '0%': { backgroundPosition: '0 0' },
+        '100%': { backgroundPosition: '100% 0' }
       }
     },
     letterSpacing: {
@@ -831,8 +842,7 @@ export default {
       sm: '640px',
       md: '768px',
       lg: '1024px',
-      xl: '1280px',
-      '2xl': '1536px'
+      xl: '1170px'
     },
     scrollMargin: ({ theme }) => ({
       ...theme('spacing')
@@ -858,25 +868,34 @@ export default {
       0: '0px',
       0.5: '0.125rem',
       1: '0.25rem',
+      1.25: '0.3125rem',
       1.5: '0.375rem',
       2: '0.5rem',
       2.5: '0.625rem',
       3: '0.75rem',
       3.5: '0.875rem',
+      3.75: '0.9375rem',
       4: '1rem',
       5: '1.25rem',
       6: '1.5rem',
+      6.25: '1.5625rem',
       7: '1.75rem',
+      7.25: '1.8125rem',
+      7.5: '1.875rem',
       8: '2rem',
       9: '2.25rem',
       10: '2.5rem',
       11: '2.75rem',
+      11.25: '2.8125rem',
       12: '3rem',
+      12.5: '3.125rem',
       14: '3.5rem',
+      15: '3.75rem',
       16: '4rem',
       20: '5rem',
       24: '6rem',
       28: '7rem',
+      30: '7.5rem',
       32: '8rem',
       36: '9rem',
       40: '10rem',
